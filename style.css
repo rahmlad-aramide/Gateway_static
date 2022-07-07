@@ -28,7 +28,7 @@
 body {
     min-height: 100vh;
     background-color: var(--clr-dark);
-    padding: 5rem 0;
+    padding: 2rem 0;
 }
 .main {
     width: 350px;
@@ -36,14 +36,6 @@ body {
     margin: auto;
     padding: 1.8rem 1rem;
     border-radius: .8rem;
-}
-@media(max-width: 350px){
-    .body {
-        padding: 2rem 0;
-    }
-    .main {
-        width: 100%;
-    }
 }
 .heading h1 {
     color: var(--clr-secondary);
@@ -85,4 +77,10 @@ span > img {
     align-items: center;
     flex-direction: row;
     margin-right: .5rem;
+}
+/* On small screen */
+@media(max-width: 350px){
+    .main {
+        width: 99%;
+    }
 }
