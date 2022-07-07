@@ -78,7 +78,7 @@ span > img {
     flex-direction: row;
     margin-right: .5rem;
 }
-/* On small screen */
+/* On Mobile - Responsive mode */
 @media(max-width: 350px){
     .main {
         width: 99%;
