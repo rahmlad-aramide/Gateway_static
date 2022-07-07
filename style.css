@@ -1,0 +1,88 @@
+/* Import font family */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
+
+/* Root colors */
+:root {
+    --clr-primary: #C523B5;
+    --clr-secondary: #031A6E;
+    --clr-white: #FFFFFF;
+    --clr-light: #F6F6F6;
+    --clr-dark: #0F0F0F;
+    --clr-bg: #EDF1FF;
+    --ff-dm-sans:  'DM Sans', sans-serif;
+    --fs-normal: normal;
+    --fw-400: 400;
+    --fw-500: 500;
+    --fw-700: 700;
+}
+
+/* Reseting padding and margin */
+*, html, body{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: var(--ff-dm-sans);
+}
+
+/* Content styling */
+body {
+    min-height: 100vh;
+    background-color: var(--clr-dark);
+    padding: 5rem 0;
+}
+.main {
+    width: 350px;
+    background-color: var(--clr-bg);
+    margin: auto;
+    padding: 1.8rem 1rem;
+    border-radius: .8rem;
+}
+@media(max-width: 350px){
+    .body {
+        padding: 2rem 0;
+    }
+    .main {
+        width: 100%;
+    }
+}
+.heading h1 {
+    color: var(--clr-secondary);
+    font-family: var(--ff-dm-sans);
+    font-style: var(--fs-normal);
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 32px;
+}
+.heading p {
+    font-weight: var(--fw-400);
+}
+button {
+    display: block;
+    width: 100%;
+    text-align: left;
+    padding: .25rem .5rem;
+    align-items: center;
+    background-color: var(--clr-white);
+    border: none;
+    cursor: pointer;
+    margin-top: .8rem;
+    border-radius: .4rem;
+}
+button > div {
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    font-weight: var(--fw-500);
+    font-weight: 700;
+}
+div > span {
+    width: 40px;
+}
+span > img {
+    height: 30px;
+    max-width: 30px;
+    display: inline-flex;
+    align-items: center;
+    flex-direction: row;
+    margin-right: .5rem;
+}
