@@ -1,0 +1,155 @@
+/* Import font family */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
+
+/* Root colors */
+:root {
+    --clr-primary: #C523B5;
+    --clr-secondary: #031A6E;
+    --clr-white: #FFFFFF;
+    --clr-light: #F6F6F6;
+    --clr-dark: #0F0F0F;
+    --clr-bg: #EDF1FF;
+    --ff-dm-sans:  'DM Sans', sans-serif;
+    --fs-normal: normal;
+    --fw-400: 400;
+    --fw-500: 500;
+    --fw-700: 700;
+}
+
+/* Reseting padding and margin */
+*, html, body{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: var(--ff-dm-sans);
+}
+
+/* Content styling */
+body {
+    min-height: 100vh;
+    background-color: var(--clr-dark);
+    padding: 2rem 0;
+}
+.main {
+    width: 550px;
+    background-color: var(--clr-bg);
+    margin: auto;
+    padding: 1.8rem 1rem;
+    border-radius: .8rem;
+}
+.connect-heading h1 {
+    color: var(--clr-dark);
+    font-family: var(--ff-dm-sans);
+    font-style: var(--fs-normal);
+    font-weight: 400;
+    font-size: 18px;
+    /* line-height: 22px; */
+}
+.connect-btns {
+    display: flex;
+    flex-direction: row;
+}
+.contents, .qr-code {
+    width: 50%;
+}
+button {
+    display: block;
+    width: 80%;
+    text-align: center;
+    padding: .25rem .5rem;
+    align-items: center;
+    background-color: var(--clr-white);
+    border: none;
+    cursor: pointer;
+    margin-top: .8rem;
+    border-radius: .4rem;
+}
+button > div {
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: var(--fw-500);
+    font-weight: 700;
+}
+div > span {
+    width: 40px;
+}
+span > img {
+    height: 30px;
+    max-width: 30px;
+    display: inline-flex;
+    align-items: center;
+    flex-direction: row;
+    margin-right: .5rem;
+}
+.qr-div, .qr-body, .copy-amount {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.copy-amount{
+    margin-top: 1rem;
+}
+.qr-div > img {
+    width: 90%;
+    margin: .5rem 0 2rem 0;
+}
+.connect-btn-div {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+.connect-btn-div > button {
+    background-color: var(--clr-primary);
+    color: var(--clr-light);
+    margin: 2rem 0;
+    font-size: 15px;
+    padding: .8rem 1.2rem;
+    width: fit-content;
+}
+.qr-body, .amount-body {
+    background-color: var(--clr-white);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 10px;
+}
+.qr-body {
+    align-items: center;
+}
+.amount-body {
+    margin-top: 2rem;
+    padding: 2rem 1rem 3rem 1rem;
+    align-items: left;
+}
+.amount-body > h2 {
+    font-size: 1rem;
+}
+div.amount, div.address {
+    display: flex;
+    justify-content: space-between;
+    margin: .8rem 0;
+    padding: .5rem 1rem;
+    background-color: var(--clr-light);
+    border-radius: 8px;
+    font-weight: bold;
+}
+div.address {
+    font-size: 12px;
+    width: 100%;
+    margin-right: 2rem;
+}
+
+/* Here, you'll use javascript slice method to reduce
+the displayed text to the number of character that the space 
+can occupy and replace the rest with elipsis (i.e ...)
+ */
+div.address span {
+    overflow-x: scroll;
+    width: 100% !important;
+}
+.copy-img {
+    width: 30px;
+    margin: 0 8px;
+}

@@ -78,6 +78,9 @@ span > img {
     flex-direction: row;
     margin-right: .5rem;
 }
+a {
+    text-decoration: none;
+}
 /* On Mobile - Responsive mode */
 @media(max-width: 350px){
     .main {
