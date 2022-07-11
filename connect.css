@@ -90,6 +90,7 @@ span > img {
 }
 .copy-amount{
     margin-top: 1rem;
+    font-weight: bold;
 }
 .qr-div > img {
     width: 90%;
