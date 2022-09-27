@@ -5,151 +5,106 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Choose Currency</title>
+    <title>PipayPro Gateway</title>
     <link rel="stylesheet" href="connect.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="shortcut icon"  href="{{url_for ('static',filename= 'img/ppay2.png')}}" />
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"> -->
 </head>
 
 <body>
     <main class="main">
         <div class="connect-heading">
-            <h1>After selecting Bitpay, customer gets redirected to Bitpay
-                site where he has to select currency and process payment</h1>
+            <h1 class="primary">Invoice No: </h1> 
+            <h3 class="bordered scroll">{{txn.memo}}</h3> 
+            <h1 class="primary">Company: </h1>
+            <h3 class="bordered scroll">{{txn.comptxns.compname}}</h3>
         </div>
-        <div class="connect-body">
+        <div id="main" class="connect-body">
             <div class="connect-btns">
-                <div class="contents">
-                    <button>
-                        <div>
-                            <span>
-                                <img src="Images/pi.svg" alt="Pi logo">
-                            </span>
-                            Pi
+                
+                <div class="qr-code">
+                    <div id="prepare">
+                        <div class="connect-btn-div">
+                            <button id="btn-connect" class="connect-button" onclick="onConnect();">
+                                Connect Wallet
+                            </button>
                         </div>
-                    </button>
-                    <button>
-                        <div>
-                            <span>
-                                <img src="Images/btc.svg" alt="Btc logo">
-                            </span>
-                            Btc
-                        </div>
-                    </button>
-                    <button>
-                        <div>
-                            <span>
-                                <img src="Images/eth.svg" alt="Eth logo">
-                            </span>
-                            Eth
-                        </div>
-                    </button>
-                    <button>
-                        <div>
-                            <span>
-                                <img src="Images/litecoin.svg" alt="Ltc logo">
-                            </span>
-                            Litecoin
-                        </div>
-                    </button>
-                    <button>
-                        <div>
-                            <span>
-                                <img src="Images/dogecoin.svg" alt="Dogecoin logo">
-                            </span>
-                            Dogecoin
-                        </div>
-                    </button>
-                    <button>
-                        <div>
-                            <span>
-                                <img src="Images/shiba-inu.svg" alt="shiba-inu logo">
-                            </span>
-                            Shiba Inu
-                        </div>
-                    </button>
-                    <button>
-                        <div>
-                            <span>
-                                <img src="Images/usdt.svg" alt="usdt logo">
-                            </span>
-                            Usdt*
-                        </div>
-                    </button>
-                    <button>
-                        <div>
-                            <span>
-                                <img src="Images/busd.svg" alt="Busd logo">
-                            </span>
-                            Busd*
-                        </div>
-                    </button>
-                    <button>
-                        <div>
-                            <span>
-                                <img src="Images/matic.svg" alt="Matic logo">
-                            </span>
-                            Matic
-                        </div>
-                    </button>
-                    <button>
-                        <div>
-                            <span>
-                                <img src="Images/bnb.svg" alt="Bnb logo">
-                            </span>
-                            Bnb
-                        </div>
-                    </button>
-                    <button>
-                        <div>
-                            <span>
-                                <img src="Images/tron.svg" alt="Tron Logo">
-                            </span>
-                            Tron
-                        </div>
-                    </button>
-                    <button>
-                        <div>
-                            <span>
-                                <img src="Images/solana.svg" alt="Solana logo">
-                            </span>
-                            Solana
-                        </div>
-                    </button>
-                </div>
-                <div class=qr-code>
-                    <div class="connect-btn-div">
-                        <button class="connect-button">
-                            Connect Wallet
-                        </button>
                     </div>
-                    <div class="qr-body">
-                        <div class="copy-amount">
-                            <img src="Images/Copy.svg" alt="Copy" class="copy-img">
-                            0.001918BTC
+                    <div id="connected" style="display:none">
+                        <div class="connect-btn-div">
+                            <button id="btn-disconnect" class="connect-button" onclick="onDisconnect();">
+                                Disconnect Wallet
+                            </button>
                         </div>
-                        <div class="qr-div">
-                            <img src="images/qr.svg" alt="QR Code" class="copy-img">
+                    </div>
+                    <div id="transaction">
+                        
+                    </div>
+                    <div id="qr-body" class="qr-body">
+                        <div class="copy-amount">
+                            <img type="image" src="/Images/Copy.svg" name="copy" alt="Copy" class="copy-img" id="copy" />
+                            <div id="myInput">Scan To Transfer</div>
+                        </div>
+                        <div id="qrcode" class="qr-div">
                         </div>
                     </div>
                     <div class="amount-body">
-                        <h2>Total Amount</h2>
+                        <h3>Total Amount</h3>
                         <div class="amount">
-                            0.001918BTC
-                            <img src="images/Copy.svg" alt="Copy" class="copy-img">
+                            <span class="value scroll">
+                                0.5eth
+                            </span>
+                            
+                            <input id="amount" name="amount" style="display:none" value="0.5">
+                            <!-- <img type="image" src="{{url_for('static', filename='img/Images/Copy.svg')}}" name="copy" alt="Copy" class="copy-img" id="copy" /> -->
+                            <img src="Images/Copy.svg" alt="Copy" class="copy-img">
                         </div>
-                        <div class="address">
-                            <span>
-                                LfG3yhMV41V7N8DMS66tp79WL..
-                            </span> 
-                            <img src="images/Copy.svg" alt="Copy" class="copy-img">
+                        <div class="value scroll dollar-value">
+                            <i>= ${{100}}</i>
                         </div>
+                        <hr>
+
+                        <div>
+                            <h4>Receiving Address</h4>
+                            <div class="address">
+                                <span class="value scroll">
+                                    0xa9662631501c0c04D57de3a0d5e553280bD4C8D60xa9662631501c0c04D57de3a0d5e553280bD4C8D6
+                                </span> 
+                                <input id="address" name="address" style="display:none" value="0xa9662631501c0c04D57de3a0d5e553280bD4C8D6">
+                                <!-- <img type="image" src="{{url_for('static', filename='img/Images/Copy.svg')}}" name="copy" alt="Copy" class="copy-img" id="copy" /> -->
+                                <img src="Images/Copy.svg" alt="Copy" class="copy-img">
+                            </div>
+                        </div>
+                        <div id="pay"></div>
+                        <div id="resultSpace"></div>
                     </div>
                 </div>
             </div>
         </div>
     </main>
+    <script src="/easy.qrcode.min.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/web3modal@1.9.8/dist/index.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/evm-chains@0.2.0/dist/umd/index.min.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/@walletconnect/web3-provider@1.2.1/dist/umd/index.min.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/fortmatic@2.0.6/dist/fortmatic.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/@toruslabs/torus-embed@1.27.2/dist/torus.umd.min.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/@myetherwallet/mewconnect-web-client"></script>
+    <script type="text/javascript" src="connect.js" charset="utf-8"></script>
+    <script type="text/javascript">
+        // Options
+        var options = {
+            //text: "https://github.com/ushelp/EasyQRCodeJS",
+            text: "Eth:0xa9662631501c0c04D57de3a0d5e553280bD4C8D6?amount=0.5",
+            logo: "/Images/eth.svg",
+            logoBackgroundTransparent: false
+        };
+        
+        // Create QRCode Object
+        new QRCode(document.getElementById("qrcode"), options);
+    </script>  
 </body>
-
 </html>
