@@ -31,27 +31,30 @@ body {
     padding: 2rem 0;
 }
 .main {
-    width: 550px;
+    width: 500px;
     background-color: var(--clr-bg);
     margin: auto;
-    padding: 1.8rem 1rem;
+    padding: 2rem 1.5rem;
     border-radius: .8rem;
 }
 .connect-heading h1 {
-    color: var(--clr-dark);
     font-family: var(--ff-dm-sans);
     font-style: var(--fs-normal);
-    font-weight: 400;
-    font-size: 18px;
-    /* line-height: 22px; */
+    font-weight: 900;
+    font-size: 30px;
 }
-.connect-btns {
-    display: flex;
-    flex-direction: row;
+.primary {
+    color: var(--clr-primary);
 }
-.contents, .qr-code {
-    width: 50%;
+.bordered {
+    border: 2px dotted var(--clr-primary);
+    border-radius: .5rem;
+    padding: 1rem;
+    margin: .8rem 0;
 }
+.bordered:last-child{
+    margin-bottom: 0;
+} 
 button {
     display: block;
     width: 80%;
@@ -64,6 +67,9 @@ button {
     margin-top: .8rem;
     border-radius: .4rem;
 }
+hr {
+    margin: .5rem 0 1rem 0;
+}
 button > div {
     height: fit-content;
     display: flex;
@@ -72,9 +78,7 @@ button > div {
     font-weight: var(--fw-500);
     font-weight: 700;
 }
-div > span {
-    width: 40px;
-}
+
 span > img {
     height: 30px;
     max-width: 30px;
@@ -92,7 +96,7 @@ span > img {
     margin-top: 1rem;
     font-weight: bold;
 }
-.qr-div > img {
+.qr-div > * {
     width: 90%;
     margin: .5rem 0 2rem 0;
 }
@@ -101,13 +105,19 @@ span > img {
     display: flex;
     justify-content: center;
 }
-.connect-btn-div > button {
+.connect-button {
     background-color: var(--clr-primary);
     color: var(--clr-light);
     margin: 2rem 0;
     font-size: 15px;
     padding: .8rem 1.2rem;
     width: fit-content;
+    border-radius: 2rem;
+    border: 2px solid var(--clr-primary);
+}
+.connect-button:hover{
+    color: var(--clr-primary);
+    background-color: var(--clr-light);
 }
 .qr-body, .amount-body {
     background-color: var(--clr-white);
@@ -142,10 +152,6 @@ div.address {
     margin-right: 2rem;
 }
 
-/* Here, you'll use javascript slice method to reduce
-the displayed text to the number of character that the space 
-can occupy and replace the rest with elipsis (i.e ...)
- */
 div.address span {
     overflow-x: scroll;
     width: 100% !important;
@@ -153,4 +159,19 @@ div.address span {
 .copy-img {
     width: 30px;
     margin: 0 8px;
+}
+.scroll {
+    overflow-x: auto;
+}
+.dollar-value {
+    opacity: .7;
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 1rem;
+}
+@media (max-width: 500px){
+    .main {
+        width: 100%;
+        margin: 2rem 0;
+    }
 }
